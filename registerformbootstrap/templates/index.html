@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+        body{
+            padding-top:2%;}
+        .form{
+            color:red;
+            text-align:center;
+            border:2px dotted violet;
+            box-shadow:2px 2px 3px brown;
+            width:50%;
+            background-color:lightgreen;
+            margin-left:25%;
+            border-radius:50px 50px 2px 2px;}
+        .student th{
+            background-color:rgb(156,189,20);
+            color:blue;
+            padding:10px;
+            border-radius:3px;
+            border-sizing:border-box;}
+        .student th:hover{
+            color:rgb(134,34,67)}
+        .student td{
+            background-color:rgd(200,34,56);
+            color:rgb(250, 128, 114);
+            padding:10px;
+            border-radius:3px}
+        a:hover{
+            color:green;
+            }
+        a:active{
+            color:white}
+        a:visited{
+            color:orange;}
+
+
+
+    </style>
+
+
+</head>
+<body>
+<div class="form"><h1>REGISTER FORM DETAILS</h1></div>
+<table class="student" align="center" style="border:2px solid blue;margin-top:34px">
+    {% if data %}
+
+    <tr>
+        <th style="border:1px solid black;">Name </th>
+        <th style="border:1px solid black;">Email </th>
+        <th style="border:1px solid black;">Gender </th>
+        <th style="border:1px solid black;">Course </th>
+        <th style="border:1px solid black;">Images </th>
+        <th style="border:1px solid black;">Address </th>
+        <th style="border:1px solid black;">Country </th>
+        <th style="border:1px solid black;">Action</th>
+
+
+    </tr>
+
+
+        {% for row in data %}
+        <tr>
+            <td style="border:1px solid black">{{ row[1] }}</td>
+
+             <td style="border:1px solid black">{{ row[2] }}</td>
+
+            <td style="border:1px solid black">{{ row[3] }}</td>
+
+            <td style="border:1px solid black">{{ row[4] }}</td>
+
+            <td style="border:1px solid black">{{ row[5] }}</td>
+
+             <td style="border:1px solid black">{{ row[6] }}</td>
+
+             <td style="border:1px solid black">{{ row[7] }}</td>
+            <td style="border:1px solid black"><a href="/edit/{{row[0]}}" target="_blank"><i class="material-icons">edit</i></a>|<a href="/delete/{{row[0]}}" target="_blank"><i class="material-icons">delete</i></a></td>
+        </tr>
+
+
+
+        {% endfor %}
+
+    {% endif %}
+</table>
+
+</body>
+</html>

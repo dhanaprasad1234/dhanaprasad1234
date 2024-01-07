@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1{
+            text-align:center;
+            color:green;
+            text-shadow:2px 5px 3px brown;}
+        a{
+            text-decoration:none}
+        a:visited{
+            color:green}
+        a:hover{
+            color:red}
+        a:active{
+            color:white}
+    </style>
+</head>
+<body>
+<h1 >WELCOME TO REGISTER FORM</h1>
+<form action="/register" method="post" enctype="multipart/form-data">
+<table align="center" style="background-color:yellow;border:3px solid black;width:auto:heigth:auto">
+
+    <tr><td> Name:</td><td><input type="text" name="name"></td></tr>
+    <tr><td> Email:</td><td><input type="email" name="email"></td></tr>
+    <tr><td> Gender:</td><td><input type="radio" name="gender" value="male">Male<input type="radio" name="gender" value="female">Female</td></tr>
+    <tr><td> Course:</td><td>
+        <select name="course">
+        <option value="0">select any one</option>
+        <option value="1">Java</option>
+        <option value="2">Python</option>
+        <option value="3">php</option>
+    </select></td>
+    </tr>
+    <tr><td> Address:</td><td><input type="text" name="address"></td></tr>
+    <tr><td> Country:</td><td><input type="text" name="country"></td></tr>
+    <tr><td>Images</td><td><input type="file" name="file"></td></tr>
+    <tr><td><input type="checkbox" name="check">I Agree Of Above Details</td></tr>
+    <tr><td></td><td><input type="submit" value="Register"></td></tr>
+    <tr><td><a href="/login" >if you already register to login </a></td></tr>
+
+
+
+</table>
+</form>
+
+
+
+
+        {% if data %}
+<div align="center">Student Details</div>
+
+<div>
+    <table align="center">
+
+        <tr><th>S.No</th><th>Student Name</th><th>Student Address</th><th>Student Email</th><th>Action</th></tr>
+             <tr><td>1</td><td>{{data['name']}}</td> <td>{{data['address']}}</td><td>{{data['email']}}</td><td><a href="/edit">Edit</a> |<a href="/delete">delete</a></td> </tr>
+
+</table></div>
+        {% endif %}
+
+
+
+
+   </body>
+</html>

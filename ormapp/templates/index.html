@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <link  rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}" />
+    <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar bg-success">
+            <h1 class="text-center" style="color:white">Store Details</h1>
+        </nav>
+    </div>
+
+    <div>
+        <button type="button" class="btn btn-outline btn-success" data-bs-toggle="modal" data-bs-target="#productmodal"> ADD DETAILS
+        </button>
+    </div>
+
+    <form action="/add" method="post">
+        <div class="modal fade" id="productmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-success" id="staticBackdropLabel" >Product Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group mb-3">
+                            <input type="text" name="pname" class="form-control" placeholder="enter the name" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid price.
+                        </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input type="text" name="model" class="form-control" placeholder="enter the model" required>
+
+                        <div class="invalid-feedback">
+                            Please provide a valid price.
+                        </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input type="number" name="price" class="form-control" placeholder="enter the price" required>
+
+                        <div class="invalid-feedback">
+                            Please provide a valid price.
+                        </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Add Details" class="btn btn-success">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+<div class="row">
+
+    <table class="table table-striped table-hover table-border">
+        <tr>
+            <th>S.No</th><th>Name</th><th>Modal</th><th>Price</th><th>Action</th>
+        </tr>
+        {% for item in record %}
+        <tr>
+            <td>{{loop.index}}</td><td>{{item.p_name}}</td><td>{{item.p_model}}</td><td>{{item.p_price}}</td>
+            <td>
+            <button type="button" class="btn btn-outline btn-success ml-2" data-bs-toggle="modal" data-bs-target="#productmodal{{item.p_id}}"> Edit
+
+        </button>
+                <a class="btn btn-danger"  href="/delete/{{item.p_id}}">Delete</a>
+            </td>
+
+
+        </tr>
+         <form action="/updateproduct" method="post">
+        <div class="modal fade" id="productmodal{{item.p_id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel{{item.p_id}}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-success" id="staticBackdropLabel{{item.p_id}}" >Product Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group mb-3">
+                            <input type="text" name="pname" class="form-control" value="{{item.p_name}}">
+                        <div class="invalid-feedback">
+                            Please provide a valid price.
+                        </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input type="text" name="model" class="form-control" value="{{item.p_model}}">
+
+                        <div class="invalid-feedback">
+                            Please provide a valid price.
+                        </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="hidden" name="p_id"  value="{{item.p_id}}">
+
+                        <div class="form-group mb-3">
+                            <input type="number" name="price" class="form-control" value="{{item.p_price}}">
+
+                        <div class="invalid-feedback">
+                            Please provide a valid price.
+                        </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Update" class="btn btn-success">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+
+        {% endfor %}
+    </table>
+</div>
+</div>
+
+
+ </body>
+</html>

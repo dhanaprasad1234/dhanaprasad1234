@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+    <nav class="navbar bg-success">
+        <h1 class="text-center" style="color:white;margin-left:700px">Store Details</h1>
+        <div class="me-5"><a href="/login" class="btn btn-info">Login</a>
+        </div>
+    </nav>
+
+    </div>
+
+</div>
+<!--register form-->
+<form action="/adduser" method="post" class="was-validated">
+    <div class="container mt-3" style="width:50%">
+        <div class="card text-center">
+            <div class="card-header">
+                Register
+
+            </div>
+            <div class="card-body">
+                <div  class="row">
+                    <div class="col-4"><lable for="name" class="form-label">Enter Name</lable></div>
+                        <div class="col-8 ">
+                            <div class="form-group mb-5">
+                                <input type="text" id="name" name="uname" class="form-control" required></div>
+                                <div class="invalid-feedback">
+                                    Please check the name.
+                                </div>
+
+                            </div>
+                        </div>
+                <div  class="row">
+                    <div class="col-4"><lable for="email" class="form-label">Enter Email</lable></div>
+                        <div class="col-8">
+                            <div class="form-group mb-5">
+                                <input type="text" id="email" name="uemail" class="form-control" required></div>
+                                <div class="invalid-feedback">
+                                    Please check the email.
+                                </div>
+                            </div>
+                        </div>
+                <div  class="row">
+                    <div class="col-4"><lable for="password" class="form-label">Enter Password</lable></div>
+                        <div class="col-8">
+                            <div class="form-group mb-5">
+                                <input type="text" id="password" name="upassword" class="form-control" required></div>
+                                <div class="invalid-feedback">
+                                    Please check the password.
+                                </div>
+                            </div>
+                        </div>
+                <div class="card-footer">
+                    <input type="submit" name="register" value="register" class="btn btn-outline-success" />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

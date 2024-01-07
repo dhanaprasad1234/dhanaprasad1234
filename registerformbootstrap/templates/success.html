@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .details{
+            color:rgb(34,78,123)}
+
+
+    </style>
+</head>
+<body>
+        {{ data }}
+        {% for row in data %}
+  <h1 style="color:red ;text-align:center">Welcome to {{row[1]}}</h1>
+
+  <div class="details" style="text-align:center">Your Details are Given Below</div>
+  <form action="/update" method="post">
+  <table style="border:1px solid black;" align="center">
+      <tr  style="border:1px solid black;">
+          <th style="border:1px solid black;">Name</th><td><input type="text" name="name" value="{{row[1]}}"/></td>
+      </tr>
+      <tr> <input type="hidden" name="id" value="{{row[0]}}"></tr>
+      <tr>
+          <th style="border:1px solid black;">Email </th><td><input type="text" name="email" value="{{row[2]}}"/></td>
+      </tr>
+      <tr>
+         <th style="border:1px solid black;">Gender:</th><td><input type="radio" name="gender" value="male" {% if row[3]=="male" %} checked {% endif %} ><span>Male</span>
+          <input type="radio" name="gender" value="female" {% if row[3]=="female" %} checked {% endif %} ><span>Female</span></td>
+      </tr>
+
+      <tr>
+
+          <th style="border:1px solid black;">Course</th><td><select name="course">
+                         <option value="0" {% if row[4]=="0" %} selected {% endif %}>select any one</option>
+                        <option value="1" {% if row[4]=="1" %} selected {% endif %}>Java</option>
+                        <option value="2" {% if row[4]=="2" %} selected {% endif %}>Python</option>
+                        <option value="3" {% if row[4]=="3" %} selected {% endif %}>php</option>
+      </select></td>
+      </tr>
+
+      <tr>
+
+          <th style="border:1px solid black;">Address </th><td><input type="text" name="address" value="{{row[6]}}"/></td>
+      </tr>
+      <tr><th style="border:1px solid black;"> Country:</th><td><input type="text" name="country" value="{{row[7]}}"></td></tr>
+      <tr><td colspan="" style="border:1px solid black;"><input type="submit" value="update"></td></tr>
+  </table>
+</form>
+        {% endfor %}
+</body>
+</html>

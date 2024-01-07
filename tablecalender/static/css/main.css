@@ -1,0 +1,21 @@
+body{text-align:center;
+      word-spacing:2px;
+      line-height:2;}
+
+
+
+
+
+
+h1{width:40%;
+    background-color:orange;
+    color:yellow;
+    text-align:center;
+    text-transform:uppercase;
+    word-spacing:1px;
+    text-shadow:1px 1px 5px blue;
+    border: 2px solid #4CAF50;
+    box-shadow:10px 10px 5px 4px red;
+    text-decoration-line:underline;
+    outline:2px solid red;
+    out-line-offset:50px;}

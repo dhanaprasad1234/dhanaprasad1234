@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tablevalues</title>
+    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet" />
+</head>
+<body>
+     <h1 align="center"> Welcome table of {{content}}</h1>
+    {% for i in range(1,21): %}
+    <h2 >{{content}}X{{i}}={{content*i}}</h2>
+    {% endfor %}
+
+</body>
+</html>
